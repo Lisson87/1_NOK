@@ -5,18 +5,21 @@ print(intro)
 
 
 def main():
-    number1 = int(input("Введите первое число: "))
-    number2 = int(input("Введите второе число: "))
-
-    spisok = [list(func_a(number1)), list(func_a(number2))]
-    # list_num1 = list(func_a(number1))
-    # list_num2 = list(func_a(number2))
+    numb = int(input("Введите количество чисел: "))
+    spisok_a = func_d(numb)
+    spisok = []
+    for item in spisok_a:
+        spisok.append(list(func_a(item)))
 
     objects = func_b(spisok)
 
     result = func_c(objects)
     # print("НОК чисел :", number1, number2, "равно: ", result)
-    print("НОК чисел {0} и {1} равно {2}".format(number1, number2, result))
+    # print("НОК чисел {0} и {1} равно {2}".format(number1, number2, result))
+    print("НОК чисел")
+    for item in spisok_a:
+        print(item)
+    print("равно", result)
 
 
 # Функция разложит на множители число
@@ -57,6 +60,15 @@ def func_c(objects):
     for item in objects:
         result *= item ** objects[item]
     return result
+
+
+def func_d(numb):
+    i = 1
+    spisok = []
+    while i <= numb:
+        spisok.append(int(input("Введите очередное число: ")))
+        i += 1
+    return spisok
 
 
 # while True:
